@@ -1,0 +1,88 @@
+[
+{
+"id":"moong-chilla",
+"name":"Moong Dal Chilla",
+"category":"breakfast",
+"image":"https://www.indianveggiedelight.com/wp-content/uploads/2023/03/moong-dal-chilla.jpg",
+"calories":"280",
+"protein":"20g",
+"time":"15 min",
+"ingredients":[
+"1 cup yellow moong dal",
+"Ginger",
+"Green chilli",
+"Turmeric",
+"Coriander"
+],
+"steps":[
+"Soak dal overnight",
+"Blend to batter",
+"Cook on pan",
+"Serve hot"
+]
+},
+
+{
+"id":"paneer-bowl",
+"name":"Paneer Chickpea Power Bowl",
+"category":"lunch",
+"image":"https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+"calories":"420",
+"protein":"28g",
+"time":"20 min",
+"ingredients":[
+"Paneer",
+"Chickpeas",
+"Spinach",
+"Olive oil"
+],
+"steps":[
+"Grill paneer",
+"Mix chickpeas",
+"Add greens",
+"Serve bowl"
+]
+},
+
+{
+"id":"chicken-dinner",
+"name":"Grilled Chicken Dinner",
+"category":"dinner",
+"image":"https://images.unsplash.com/photo-1532550907401-a500c9a57435",
+"calories":"340",
+"protein":"45g",
+"time":"25 min",
+"ingredients":[
+"Chicken breast",
+"Olive oil",
+"Garlic",
+"Pepper"
+],
+"steps":[
+"Marinate chicken",
+"Grill chicken",
+"Serve with veggies"
+]
+},
+
+{
+"id":"protein-mousse",
+"name":"Chocolate Protein Mousse",
+"category":"dessert",
+"image":"https://images.unsplash.com/photo-1541783245831-57d6fb0926d3",
+"calories":"280",
+"protein":"22g",
+"time":"10 min",
+"ingredients":[
+"Greek yogurt",
+"Protein powder",
+"Cocoa powder"
+],
+"steps":[
+"Mix yogurt and protein",
+"Add cocoa",
+"Chill and serve"
+]
+}
+
+]

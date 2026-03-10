@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Login | Pinch Of Yum</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:#0A0A0A;
+font-family:Poppins,sans-serif;
+}
+
+.auth-container{
+display:flex;
+width:800px;
+background:#111;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 10px 40px rgba(0,0,0,0.5);
+}
+
+.auth-left{
+flex:1;
+background:url("https://images.unsplash.com/photo-1498837167922-ddd27525d352") center/cover;
+}
+
+.auth-right{
+flex:1;
+padding:40px;
+}
+
+.auth-right h2{
+color:#FF6B00;
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border:none;
+border-radius:6px;
+background:#222;
+color:white;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#FF6B00;
+border:none;
+border-radius:6px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.switch{
+margin-top:15px;
+color:#aaa;
+cursor:pointer;
+}
+
+.error{
+color:red;
+margin-bottom:10px;
+}
+
+.hidden{
+display:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="auth-container">
+
+<div class="auth-left"></div>
+
+<div class="auth-right">
+
+<h2 id="formTitle">Login</h2>
+
+<div id="errorMsg" class="error"></div>
+
+<input type="text" id="username" placeholder="Username">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<p class="switch" onclick="toggleForm()">
+Don't have an account? Register
+</p>
+
+</div>
+
+</div>
+
+<script src="../js/auth.js"></script>
+
+</body>
+</html>

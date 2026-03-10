@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Categories | Pinch Of Yum</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">Pinch Of Yum</div>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+            <a href="categories.html">Categories</a>
+            <a href="favorites.html">Favorites</a>
+
+            <div id="authArea"></div>
+
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <h1>Explore Categories</h1>
+
+        <div class="grid category-grid">
+
+            <div class="category-card" onclick="filterCategory('breakfast')">
+                🍳 Breakfast
+            </div>
+
+            <div class="category-card" onclick="filterCategory('lunch')">
+                🥗 Lunch
+            </div>
+
+            <div class="category-card" onclick="filterCategory('dinner')">
+                🍗 Dinner
+            </div>
+
+            <div class="category-card" onclick="filterCategory('dessert')">
+                🍰 Dessert
+            </div>
+
+        </div>
+
+        <h2 id="categoryTitle"></h2>
+
+        <div class="grid" id="recipeGrid"></div>
+
+    </div>
+
+    <script src="../js/categories.js"></script>
+    <script src="../js/navbar.js"></script>
+
+</body>
+
+</html>
