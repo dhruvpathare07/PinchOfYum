@@ -1,5 +1,4 @@
 const params = new URLSearchParams(window.location.search)
-
 const id = params.get("id")
 
 fetch("../data/recipes.json")
@@ -14,79 +13,84 @@ fetch("../data/recipes.json")
 
         container.innerHTML = `
 
-<h1>${recipe.name}</h1>
+<div class="recipe-header">
 
-<img src="${recipe.image}" width="400">
+<h1 class="recipe-title">${recipe.name}</h1>
 
-<p>Calories: ${recipe.calories}</p>
+<img src="${recipe.image}" class="recipe-image">
 
-<p>Protein: ${recipe.protein}</p>
+</div>
 
-<p>Time: ${recipe.time}</p>
+<div class="recipe-stats">
+
+<div class="stat-card">
+<span>${recipe.calories}</span>
+Calories
+</div>
+
+<div class="stat-card">
+<span>${recipe.protein}</span>
+Protein
+</div>
+
+<div class="stat-card">
+<span>${recipe.time}</span>
+Time
+</div>
+
+<div class="stat-card">
+<span>Easy</span>
+Level
+</div>
+
+</div>
+
+<div class="section-grid">
+
+<div class="recipe-card">
 
 <h2>Ingredients</h2>
 
 <ul>
 
-${recipe.ingredients.map(i => `<li>${i}</li>`).join("")}
+${recipe.ingredients.map(i => `<li>• ${i}</li>`).join("")}
 
 </ul>
 
-<h2>Steps</h2>
+</div>
 
-<ol>
+<div class="recipe-card">
+
+<h2>How To Make</h2>
+
+<ol class="steps">
 
 ${recipe.steps.map(s => `<li>${s}</li>`).join("")}
 
 </ol>
 
-<button onclick="addFavorite('${recipe.id}')">
+</div>
+
+</div>
+
+<button class="save-btn" onclick="addFavorite('${recipe.id}')">
+
 Save Recipe
+
 </button>
+
+<div class="review-section">
+
+<h2>Reviews</h2>
+
+<textarea placeholder="Write your review..."></textarea>
+
+<button>Submit Review</button>
+
+<div class="review-list"></div>
+
+</div>
 
 `
 
     })
-async function addFavorite(recipeId){
-
-const username = localStorage.getItem("currentUser");
-
-if(!username){
-
-alert("Please login first");
-
-window.location.href="login.html";
-
-return;
-
-}
-
-await fetch("http://127.0.0.1:5000/favorite",{
-
-method:"POST",
-
-headers:{
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify({
-username:username,
-recipe_id:recipeId
-})
-
-});
-
-alert("Recipe saved!");
-
-}
-function toggleLike() {
-
-    let likes = localStorage.getItem("likes") || 0
-
-    likes++
-
-    localStorage.setItem("likes", likes)
-
-    alert("You liked this recipe!")
-
-}
