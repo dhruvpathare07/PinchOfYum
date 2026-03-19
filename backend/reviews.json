@@ -1,0 +1,23 @@
+[
+    {
+        "recipe_id": "paneer-bowl",
+        "username": "dhruv",
+        "rating": 3,
+        "comment": "ok",
+        "date": "2026-03-19 13:18"
+    },
+    {
+        "recipe_id": "moong-chilla",
+        "username": "shravani",
+        "rating": 4,
+        "comment": "good receipe",
+        "date": "2026-03-19 13:20"
+    },
+    {
+        "recipe_id": "moong-chilla",
+        "username": "dhruv",
+        "rating": 3,
+        "comment": "nice recipe\n",
+        "date": "2026-03-19 13:29"
+    }
+]

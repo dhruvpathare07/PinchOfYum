@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import sqlite3
+import json
+from datetime import datetime
 
 app = Flask(__name__)
 CORS(app)
@@ -130,6 +132,45 @@ def get_favorites(username):
     return jsonify(favorites)
 
 
+
+REVIEW_FILE = "reviews.json"
+
+def load_reviews():
+    try:
+        with open(REVIEW_FILE, "r") as f:
+            return json.load(f)
+    except:
+        return []
+
+def save_reviews(data):
+    with open(REVIEW_FILE, "w") as f:
+        json.dump(data, f, indent=4)
+
+@app.route("/add-review", methods=["POST"])
+def add_review():
+    data = request.json
+    reviews = load_reviews()
+
+    reviews = [
+        r for r in reviews
+        if not (r["recipe_id"] == data["recipe_id"] and r["username"] == data["username"])
+    ]
+
+    data["date"] = datetime.now().strftime("%Y-%m-%d %H:%M")
+
+    reviews.append(data)
+    save_reviews(reviews)
+
+    return jsonify({"message": "Review added"})
+
+@app.route("/reviews/<recipe_id>")
+def get_reviews(recipe_id):
+    reviews = load_reviews()
+    return jsonify([r for r in reviews if r["recipe_id"] == recipe_id])
+@app.route("/reviews/all")
+def all_reviews():
+    reviews = load_reviews()
+    return jsonify(reviews)
 # ---------- RUN SERVER ----------
 
 if __name__ == "__main__":

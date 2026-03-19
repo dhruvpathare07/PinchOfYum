@@ -30,12 +30,34 @@
 
     <div class="recipe-container" id="recipeContainer">
 
-        <!-- Recipe content loads here dynamically -->
+        <div class="review-section">
+
+    <h2>⭐ Reviews & Ratings</h2>
+
+    <!-- Average -->
+    <div id="ratingSummary"></div>
+
+    <!-- Add Review -->
+    <div class="review-form">
+
+        <div id="starInput" class="stars"></div>
+
+        <textarea id="reviewText" placeholder="Write your review..."></textarea>
+
+        <button onclick="submitReview()">Submit Review</button>
+
+    </div>
+
+    <!-- Reviews -->
+    <div id="reviewList"></div>
+
+</div>
 
     </div>
 
     <script src="../js/navbar.js"></script>
     <script src="../js/recipePage.js"></script>
+    <script src="../js/reviews.js"></script>
 
 </body>
 

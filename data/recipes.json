@@ -1,88 +1,225 @@
 [
-{
-"id":"moong-chilla",
-"name":"Moong Dal Chilla",
-"category":"breakfast",
-"image":"https://www.indianveggiedelight.com/wp-content/uploads/2023/03/moong-dal-chilla.jpg",
-"calories":"280",
-"protein":"20g",
-"time":"15 min",
-"ingredients":[
-"1 cup yellow moong dal",
-"Ginger",
-"Green chilli",
-"Turmeric",
-"Coriander"
-],
-"steps":[
-"Soak dal overnight",
-"Blend to batter",
-"Cook on pan",
-"Serve hot"
-]
-},
+  {
+    "id": "moong-chilla",
+    "name": "Moong Dal Chilla",
+    "category": "breakfast",
+    "image": "https://www.indianveggiedelight.com/wp-content/uploads/2023/03/moong-dal-chilla.jpg",
+    "calories": "250",
+    "protein": "18g",
+    "time": "15 min",
+    "ingredients": ["Moong dal", "Ginger", "Green chilli", "Turmeric"],
+    "steps": ["Soak dal", "Blend batter", "Cook on pan"]
+  },
+  {
+    "id": "oats-upma",
+    "name": "Oats Vegetable Upma",
+    "category": "breakfast",
+    "image": "https://www.vegrecipesofindia.com/wp-content/uploads/2016/06/oats-upma-recipe.jpg",
+    "calories": "220",
+    "protein": "10g",
+    "time": "15 min",
+    "ingredients": ["Oats", "Vegetables", "Mustard seeds"],
+    "steps": ["Roast oats", "Cook veggies", "Mix together"]
+  },
+  {
+    "id": "egg-white-omelette",
+    "name": "Egg White Omelette",
+    "category": "breakfast",
+    "image": "https://images.unsplash.com/photo-1604908176997-4316c2c8c7c0",
+    "calories": "180",
+    "protein": "20g",
+    "time": "10 min",
+    "ingredients": ["Egg whites", "Spinach", "Onion"],
+    "steps": ["Beat eggs", "Add veggies", "Cook omelette"]
+  },
+  {
+    "id": "smoothie-bowl",
+    "name": "Protein Smoothie Bowl",
+    "category": "breakfast",
+    "image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061",
+    "calories": "300",
+    "protein": "22g",
+    "time": "10 min",
+    "ingredients": ["Banana", "Protein powder", "Milk"],
+    "steps": ["Blend all", "Pour bowl", "Add toppings"]
+  },
+  {
+    "id": "poha",
+    "name": "Vegetable Poha",
+    "category": "breakfast",
+    "image": "https://www.vegrecipesofindia.com/wp-content/uploads/2021/06/poha-recipe.jpg",
+    "calories": "250",
+    "protein": "8g",
+    "time": "15 min",
+    "ingredients": ["Poha", "Peanuts", "Vegetables"],
+    "steps": ["Soak poha", "Cook veggies", "Mix and serve"]
+  },
 
-{
-"id":"paneer-bowl",
-"name":"Paneer Chickpea Power Bowl",
-"category":"lunch",
-"image":"https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-"calories":"420",
-"protein":"28g",
-"time":"20 min",
-"ingredients":[
-"Paneer",
-"Chickpeas",
-"Spinach",
-"Olive oil"
-],
-"steps":[
-"Grill paneer",
-"Mix chickpeas",
-"Add greens",
-"Serve bowl"
-]
-},
+  {
+    "id": "paneer-bowl",
+    "name": "Paneer Chickpea Bowl",
+    "category": "lunch",
+    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+    "calories": "400",
+    "protein": "28g",
+    "time": "20 min",
+    "ingredients": ["Paneer", "Chickpeas", "Spinach"],
+    "steps": ["Grill paneer", "Mix chickpeas", "Serve"]
+  },
+  {
+    "id": "brown-rice-chicken",
+    "name": "Brown Rice Chicken Bowl",
+    "category": "lunch",
+    "image": "https://images.unsplash.com/photo-1512058564366-c9e2d9d0f3fa",
+    "calories": "450",
+    "protein": "35g",
+    "time": "25 min",
+    "ingredients": ["Chicken", "Brown rice", "Veggies"],
+    "steps": ["Cook rice", "Grill chicken", "Combine"]
+  },
+  {
+    "id": "dal-roti",
+    "name": "Dal Roti Combo",
+    "category": "lunch",
+    "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950",
+    "calories": "350",
+    "protein": "20g",
+    "time": "25 min",
+    "ingredients": ["Dal", "Whole wheat roti"],
+    "steps": ["Cook dal", "Prepare roti", "Serve"]
+  },
+  {
+    "id": "quinoa-salad",
+    "name": "Quinoa Veg Salad",
+    "category": "lunch",
+    "image": "https://images.unsplash.com/photo-1505253216365-7e9f0a7d6c0e",
+    "calories": "300",
+    "protein": "15g",
+    "time": "15 min",
+    "ingredients": ["Quinoa", "Veggies", "Olive oil"],
+    "steps": ["Cook quinoa", "Mix veggies", "Serve"]
+  },
+  {
+    "id": "tofu-stirfry",
+    "name": "Tofu Stir Fry",
+    "category": "lunch",
+    "image": "https://images.unsplash.com/photo-1604908177522-3d7d0c0d6b8c",
+    "calories": "320",
+    "protein": "22g",
+    "time": "20 min",
+    "ingredients": ["Tofu", "Vegetables", "Soy sauce"],
+    "steps": ["Cook tofu", "Add veggies", "Stir fry"]
+  },
 
-{
-"id":"chicken-dinner",
-"name":"Grilled Chicken Dinner",
-"category":"dinner",
-"image":"https://images.unsplash.com/photo-1532550907401-a500c9a57435",
-"calories":"340",
-"protein":"45g",
-"time":"25 min",
-"ingredients":[
-"Chicken breast",
-"Olive oil",
-"Garlic",
-"Pepper"
-],
-"steps":[
-"Marinate chicken",
-"Grill chicken",
-"Serve with veggies"
-]
-},
+  {
+    "id": "grilled-chicken",
+    "name": "Grilled Chicken",
+    "category": "dinner",
+    "image": "https://images.unsplash.com/photo-1532550907401-a500c9a57435",
+    "calories": "300",
+    "protein": "40g",
+    "time": "25 min",
+    "ingredients": ["Chicken breast", "Spices"],
+    "steps": ["Marinate", "Grill", "Serve"]
+  },
+  {
+    "id": "paneer-bhurji",
+    "name": "Low Fat Paneer Bhurji",
+    "category": "dinner",
+    "image": "https://www.vegrecipesofindia.com/wp-content/uploads/2021/05/paneer-bhurji.jpg",
+    "calories": "280",
+    "protein": "25g",
+    "time": "20 min",
+    "ingredients": ["Paneer", "Tomato", "Onion"],
+    "steps": ["Cook onions", "Add paneer", "Serve"]
+  },
+  {
+    "id": "veg-soup",
+    "name": "Clear Vegetable Soup",
+    "category": "dinner",
+    "image": "https://images.unsplash.com/photo-1547592180-85f173990554",
+    "calories": "120",
+    "protein": "5g",
+    "time": "15 min",
+    "ingredients": ["Vegetables", "Spices"],
+    "steps": ["Boil veggies", "Season", "Serve"]
+  },
+  {
+    "id": "fish-grill",
+    "name": "Grilled Fish",
+    "category": "dinner",
+    "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
+    "calories": "280",
+    "protein": "35g",
+    "time": "20 min",
+    "ingredients": ["Fish", "Lemon", "Spices"],
+    "steps": ["Marinate", "Grill", "Serve"]
+  },
+  {
+    "id": "egg-curry",
+    "name": "Boiled Egg Curry",
+    "category": "dinner",
+    "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950",
+    "calories": "300",
+    "protein": "20g",
+    "time": "20 min",
+    "ingredients": ["Eggs", "Tomato gravy"],
+    "steps": ["Boil eggs", "Prepare gravy", "Mix"]
+  },
 
-{
-"id":"protein-mousse",
-"name":"Chocolate Protein Mousse",
-"category":"dessert",
-"image":"https://images.unsplash.com/photo-1541783245831-57d6fb0926d3",
-"calories":"280",
-"protein":"22g",
-"time":"10 min",
-"ingredients":[
-"Greek yogurt",
-"Protein powder",
-"Cocoa powder"
-],
-"steps":[
-"Mix yogurt and protein",
-"Add cocoa",
-"Chill and serve"
-]
-}
-
+  {
+    "id": "protein-mousse",
+    "name": "Chocolate Protein Mousse",
+    "category": "dessert",
+    "image": "https://images.unsplash.com/photo-1541783245831-57d6fb0926d3",
+    "calories": "200",
+    "protein": "20g",
+    "time": "10 min",
+    "ingredients": ["Greek yogurt", "Protein powder"],
+    "steps": ["Mix", "Chill", "Serve"]
+  },
+  {
+    "id": "fruit-yogurt",
+    "name": "Fruit Yogurt Bowl",
+    "category": "dessert",
+    "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777",
+    "calories": "180",
+    "protein": "12g",
+    "time": "5 min",
+    "ingredients": ["Yogurt", "Fruits"],
+    "steps": ["Mix", "Serve"]
+  },
+  {
+    "id": "chia-pudding",
+    "name": "Chia Seed Pudding",
+    "category": "dessert",
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+    "calories": "220",
+    "protein": "10g",
+    "time": "10 min",
+    "ingredients": ["Chia seeds", "Milk"],
+    "steps": ["Soak", "Chill", "Serve"]
+  },
+  {
+    "id": "peanut-bites",
+    "name": "Peanut Energy Bites",
+    "category": "dessert",
+    "image": "https://images.unsplash.com/photo-1546069901-d5c4c3f7d4c3",
+    "calories": "210",
+    "protein": "8g",
+    "time": "10 min",
+    "ingredients": ["Peanut butter", "Oats"],
+    "steps": ["Mix", "Shape", "Serve"]
+  },
+  {
+    "id": "dark-choco",
+    "name": "Dark Chocolate Almond",
+    "category": "dessert",
+    "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba",
+    "calories": "190",
+    "protein": "6g",
+    "time": "5 min",
+    "ingredients": ["Dark chocolate", "Almonds"],
+    "steps": ["Melt", "Mix", "Set"]
+  }
 ]

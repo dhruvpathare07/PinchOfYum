@@ -165,3 +165,63 @@ transform:translateY(-6px) scale(1.02);
 box-shadow:0 15px 30px rgba(255,107,0,0.3);
 
 }
+/* STARS */
+.stars span {
+    font-size: 24px;
+    cursor: pointer;
+    color: #555;
+}
+
+.stars span.active {
+    color: #FF6B00;
+}
+
+/* REVIEW FORM */
+.review-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #222;
+    border: none;
+    color: white;
+    border-radius: 6px;
+}
+
+/* REVIEW ITEM */
+.review-item {
+    background: #111;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.review-item strong {
+    color: #FF6B00;
+}
+
+/* SUMMARY */
+#ratingSummary {
+    margin-bottom: 20px;
+}
+
+
+/* 📊 RATING BREAKDOWN */
+.rating-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 5px 0;
+}
+
+.bar {
+    flex: 1;
+    height: 8px;
+    background: #333;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    background: #FFD700;
+}

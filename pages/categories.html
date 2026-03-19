@@ -3,25 +3,19 @@
 
 <head>
     <title>Categories | Pinch Of Yum</title>
-
     <link rel="stylesheet" href="../css/style.css">
-
 </head>
 
 <body>
 
     <header>
-
         <div class="logo">Pinch Of Yum</div>
 
         <nav>
-
             <a href="index.html">Home</a>
             <a href="categories.html">Categories</a>
             <a href="favorites.html">Favorites</a>
-
             <div id="authArea"></div>
-
         </nav>
     </header>
 
@@ -31,26 +25,42 @@
 
         <div class="grid category-grid">
 
-            <div class="category-card" onclick="filterCategory('breakfast')">
-                🍳 Breakfast
-            </div>
-
-            <div class="category-card" onclick="filterCategory('lunch')">
-                🥗 Lunch
-            </div>
-
-            <div class="category-card" onclick="filterCategory('dinner')">
-                🍗 Dinner
-            </div>
-
-            <div class="category-card" onclick="filterCategory('dessert')">
-                🍰 Dessert
-            </div>
+            <div class="category-card" onclick="filterCategory('breakfast')">🍳 Breakfast</div>
+            <div class="category-card" onclick="filterCategory('lunch')">🥗 Lunch</div>
+            <div class="category-card" onclick="filterCategory('dinner')">🍗 Dinner</div>
+            <div class="category-card" onclick="filterCategory('dessert')">🍰 Dessert</div>
 
         </div>
 
         <h2 id="categoryTitle"></h2>
 
+        <!-- 🔍 Search -->
+        <input type="text" id="searchInput" placeholder="🔍 Search in this category..." class="search-bar">
+
+        <!-- 🔥 Filters -->
+        <div class="filters">
+            <select id="calorieFilter">
+                <option value="">🔥 Calories</option>
+                <option value="low">Low (&lt;200)</option>
+                <option value="medium">Medium (200-350)</option>
+                <option value="high">High (350+)</option>
+            </select>
+
+            <select id="proteinFilter">
+                <option value="">💪 Protein</option>
+                <option value="low">Low (&lt;10g)</option>
+                <option value="medium">Medium (10-25g)</option>
+                <option value="high">High (25g+)</option>
+            </select>
+            <select id="ratingFilter">
+                <option value="">⭐ Rating</option>
+                <option value="4">4★ & above</option>
+                <option value="3">3★ & above</option>
+                <option value="2">2★ & above</option>
+            </select>
+        </div>
+
+        <!-- ✅ CORRECT PLACE -->
         <div class="grid" id="recipeGrid"></div>
 
     </div>

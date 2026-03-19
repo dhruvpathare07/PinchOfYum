@@ -169,3 +169,72 @@ background:#222;
 .user-menu:hover .dropdown{
 display:block;
 }
+.search-bar {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0 25px;
+    border-radius: 8px;
+    border: none;
+    background: #1c1c1c;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-bar:focus {
+    box-shadow: 0 0 10px rgba(255, 107, 0, 0.6);
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filters select {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    background: #1c1c1c;
+    color: white;
+}
+.rating {
+    color: #FFD700;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* ⭐ RATING BOX */
+.rating-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.star {
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
+    color: #555;
+}
+
+.star.filled {
+    color: #FFD700;
+}
+
+.star.half {
+    color: #555;
+}
+
+.star.half::before {
+    content: "★";
+    position: absolute;
+    left: 0;
+    width: 50%;
+    overflow: hidden;
+    color: #FFD700;
+}
+.star {
+    margin-right: 2px;
+}

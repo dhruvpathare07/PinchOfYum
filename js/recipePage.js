@@ -1,107 +1,84 @@
-const params = new URLSearchParams(window.location.search)
-const id = params.get("id")
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
 
 fetch("../data/recipes.json")
+.then(res => res.json())
+.then(data => {
 
-    .then(res => res.json())
+    const recipe = data.find(r => r.id === id);
+    const container = document.getElementById("recipeContainer");
 
-    .then(data => {
+    container.innerHTML = `
+        <div class="recipe-header">
+            <h1 class="recipe-title">${recipe.name}</h1>
+            <img src="${recipe.image}" class="recipe-image">
+        </div>
 
-        const recipe = data.find(r => r.id === id)
+        <div class="recipe-stats">
+            <div class="stat-card"><span>${recipe.calories}</span>Calories</div>
+            <div class="stat-card"><span>${recipe.protein}</span>Protein</div>
+            <div class="stat-card"><span>${recipe.time}</span>Time</div>
+            <div class="stat-card"><span>Easy</span>Level</div>
+        </div>
 
-        const container = document.getElementById("recipeContainer")
+        <div class="section-grid">
+            <div class="recipe-card">
+                <h2>Ingredients</h2>
+                <ul>
+                    ${recipe.ingredients.map(i => `<li>• ${i}</li>`).join("")}
+                </ul>
+            </div>
 
-        container.innerHTML = `
+            <div class="recipe-card">
+                <h2>How To Make</h2>
+                <ol class="steps">
+                    ${recipe.steps.map(s => `<li>${s}</li>`).join("")}
+                </ol>
+            </div>
+        </div>
 
-<div class="recipe-header">
-<h1 class="recipe-title">${recipe.name}</h1>
-<img src="${recipe.image}" class="recipe-image">
-</div>
-<div class="recipe-stats">
-<div class="stat-card">
-<span>${recipe.calories}</span>
-Calories
-</div>
-<div class="stat-card">
-<span>${recipe.protein}</span>
-Protein
-</div>
-<div class="stat-card">
-<span>${recipe.time}</span>
-Time
-</div>
-<div class="stat-card">
-<span>Easy</span>
-Level
-</div>
-</div>
-<div class="section-grid">
-<div class="recipe-card">
-<h2>Ingredients</h2>
-<ul>
-${recipe.ingredients.map(i => `<li>• ${i}</li>`).join("")}
-</ul>
-</div>
-<div class="recipe-card">
-<h2>How To Make</h2>
-<ol class="steps">
+        <button class="save-btn" onclick="addFavorite('${recipe.id}')">
+            Save Recipe
+        </button>
 
-${recipe.steps.map(s => `<li>${s}</li>`).join("")}
+        <!-- ✅ NEW REVIEW SYSTEM (CORRECT ONE) -->
+        <div class="review-section">
 
-</ol>
-</div>
-</div>
-<button class="save-btn" onclick="addFavorite('${recipe.id}')">
-Save Recipe
-</button>
-<div class="review-section">
-<h2>Reviews</h2>
-<textarea placeholder="Write your review..."></textarea>
-<button>Submit Review</button>
-<div class="review-list"></div>
-</div>
+            <h2>⭐ Reviews & Ratings</h2>
 
-`
+            <div id="ratingSummary"></div>
 
-    })
+            <div class="review-form">
+                <div id="starInput" class="stars"></div>
+                <textarea id="reviewText" placeholder="Write your review..."></textarea>
+                <button onclick="submitReview()">Submit Review</button>
+            </div>
+
+            <div id="reviewList"></div>
+
+        </div>
+    `;
+
+    // ✅ IMPORTANT: initialize AFTER DOM created
+    initReviews();
+
+});
+
+// FAVORITE
 function addFavorite(recipeId) {
-
-    const username = localStorage.getItem("currentUser")
+    const username = localStorage.getItem("currentUser");
 
     if (!username) {
-        alert("Please login first")
-        return
+        alert("Please login first");
+        return;
     }
 
     fetch("http://127.0.0.1:5000/favorite", {
-
         method: "POST",
-
-        headers: {
-            "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify({
-            username: username,
-            recipe_id: recipeId
-        })
-
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ username, recipe_id: recipeId })
     })
-
-        .then(res => res.json())
-
-        .then(data => {
-
-            alert("Recipe saved to favorites!")
-
-        })
-
-        .catch(err => {
-
-            console.error(err)
-
-            alert("Error saving recipe")
-
-        })
-
+    .then(res => res.json())
+    .then(() => alert("Recipe saved!"))
+    .catch(() => alert("Error saving recipe"));
 }
