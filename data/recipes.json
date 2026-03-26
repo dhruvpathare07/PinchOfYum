@@ -7,8 +7,17 @@
     "calories": "250",
     "protein": "18g",
     "time": "15 min",
-    "ingredients": ["Moong dal", "Ginger", "Green chilli", "Turmeric"],
-    "steps": ["Soak dal", "Blend batter", "Cook on pan"]
+    "ingredients": [
+      "Moong dal",
+      "Ginger",
+      "Green chilli",
+      "Turmeric"
+    ],
+    "steps": [
+      "Soak dal",
+      "Blend batter",
+      "Cook on pan"
+    ]
   },
   {
     "id": "oats-upma",
@@ -18,8 +27,16 @@
     "calories": "220",
     "protein": "10g",
     "time": "15 min",
-    "ingredients": ["Oats", "Vegetables", "Mustard seeds"],
-    "steps": ["Roast oats", "Cook veggies", "Mix together"]
+    "ingredients": [
+      "Oats",
+      "Vegetables",
+      "Mustard seeds"
+    ],
+    "steps": [
+      "Roast oats",
+      "Cook veggies",
+      "Mix together"
+    ]
   },
   {
     "id": "egg-white-omelette",
@@ -29,8 +46,16 @@
     "calories": "180",
     "protein": "20g",
     "time": "10 min",
-    "ingredients": ["Egg whites", "Spinach", "Onion"],
-    "steps": ["Beat eggs", "Add veggies", "Cook omelette"]
+    "ingredients": [
+      "Egg whites",
+      "Spinach",
+      "Onion"
+    ],
+    "steps": [
+      "Beat eggs",
+      "Add veggies",
+      "Cook omelette"
+    ]
   },
   {
     "id": "smoothie-bowl",
@@ -40,8 +65,16 @@
     "calories": "300",
     "protein": "22g",
     "time": "10 min",
-    "ingredients": ["Banana", "Protein powder", "Milk"],
-    "steps": ["Blend all", "Pour bowl", "Add toppings"]
+    "ingredients": [
+      "Banana",
+      "Protein powder",
+      "Milk"
+    ],
+    "steps": [
+      "Blend all",
+      "Pour bowl",
+      "Add toppings"
+    ]
   },
   {
     "id": "poha",
@@ -51,10 +84,17 @@
     "calories": "250",
     "protein": "8g",
     "time": "15 min",
-    "ingredients": ["Poha", "Peanuts", "Vegetables"],
-    "steps": ["Soak poha", "Cook veggies", "Mix and serve"]
+    "ingredients": [
+      "Poha",
+      "Peanuts",
+      "Vegetables"
+    ],
+    "steps": [
+      "Soak poha",
+      "Cook veggies",
+      "Mix and serve"
+    ]
   },
-
   {
     "id": "paneer-bowl",
     "name": "Paneer Chickpea Bowl",
@@ -63,8 +103,16 @@
     "calories": "400",
     "protein": "28g",
     "time": "20 min",
-    "ingredients": ["Paneer", "Chickpeas", "Spinach"],
-    "steps": ["Grill paneer", "Mix chickpeas", "Serve"]
+    "ingredients": [
+      "Paneer",
+      "Chickpeas",
+      "Spinach"
+    ],
+    "steps": [
+      "Grill paneer",
+      "Mix chickpeas",
+      "Serve"
+    ]
   },
   {
     "id": "brown-rice-chicken",
@@ -74,8 +122,16 @@
     "calories": "450",
     "protein": "35g",
     "time": "25 min",
-    "ingredients": ["Chicken", "Brown rice", "Veggies"],
-    "steps": ["Cook rice", "Grill chicken", "Combine"]
+    "ingredients": [
+      "Chicken",
+      "Brown rice",
+      "Veggies"
+    ],
+    "steps": [
+      "Cook rice",
+      "Grill chicken",
+      "Combine"
+    ]
   },
   {
     "id": "dal-roti",
@@ -85,8 +141,15 @@
     "calories": "350",
     "protein": "20g",
     "time": "25 min",
-    "ingredients": ["Dal", "Whole wheat roti"],
-    "steps": ["Cook dal", "Prepare roti", "Serve"]
+    "ingredients": [
+      "Dal",
+      "Whole wheat roti"
+    ],
+    "steps": [
+      "Cook dal",
+      "Prepare roti",
+      "Serve"
+    ]
   },
   {
     "id": "quinoa-salad",
@@ -96,8 +159,16 @@
     "calories": "300",
     "protein": "15g",
     "time": "15 min",
-    "ingredients": ["Quinoa", "Veggies", "Olive oil"],
-    "steps": ["Cook quinoa", "Mix veggies", "Serve"]
+    "ingredients": [
+      "Quinoa",
+      "Veggies",
+      "Olive oil"
+    ],
+    "steps": [
+      "Cook quinoa",
+      "Mix veggies",
+      "Serve"
+    ]
   },
   {
     "id": "tofu-stirfry",
@@ -107,10 +178,17 @@
     "calories": "320",
     "protein": "22g",
     "time": "20 min",
-    "ingredients": ["Tofu", "Vegetables", "Soy sauce"],
-    "steps": ["Cook tofu", "Add veggies", "Stir fry"]
+    "ingredients": [
+      "Tofu",
+      "Vegetables",
+      "Soy sauce"
+    ],
+    "steps": [
+      "Cook tofu",
+      "Add veggies",
+      "Stir fry"
+    ]
   },
-
   {
     "id": "grilled-chicken",
     "name": "Grilled Chicken",
@@ -119,8 +197,15 @@
     "calories": "300",
     "protein": "40g",
     "time": "25 min",
-    "ingredients": ["Chicken breast", "Spices"],
-    "steps": ["Marinate", "Grill", "Serve"]
+    "ingredients": [
+      "Chicken breast",
+      "Spices"
+    ],
+    "steps": [
+      "Marinate",
+      "Grill",
+      "Serve"
+    ]
   },
   {
     "id": "paneer-bhurji",
@@ -130,8 +215,16 @@
     "calories": "280",
     "protein": "25g",
     "time": "20 min",
-    "ingredients": ["Paneer", "Tomato", "Onion"],
-    "steps": ["Cook onions", "Add paneer", "Serve"]
+    "ingredients": [
+      "Paneer",
+      "Tomato",
+      "Onion"
+    ],
+    "steps": [
+      "Cook onions",
+      "Add paneer",
+      "Serve"
+    ]
   },
   {
     "id": "veg-soup",
@@ -141,8 +234,15 @@
     "calories": "120",
     "protein": "5g",
     "time": "15 min",
-    "ingredients": ["Vegetables", "Spices"],
-    "steps": ["Boil veggies", "Season", "Serve"]
+    "ingredients": [
+      "Vegetables",
+      "Spices"
+    ],
+    "steps": [
+      "Boil veggies",
+      "Season",
+      "Serve"
+    ]
   },
   {
     "id": "fish-grill",
@@ -152,8 +252,16 @@
     "calories": "280",
     "protein": "35g",
     "time": "20 min",
-    "ingredients": ["Fish", "Lemon", "Spices"],
-    "steps": ["Marinate", "Grill", "Serve"]
+    "ingredients": [
+      "Fish",
+      "Lemon",
+      "Spices"
+    ],
+    "steps": [
+      "Marinate",
+      "Grill",
+      "Serve"
+    ]
   },
   {
     "id": "egg-curry",
@@ -163,10 +271,16 @@
     "calories": "300",
     "protein": "20g",
     "time": "20 min",
-    "ingredients": ["Eggs", "Tomato gravy"],
-    "steps": ["Boil eggs", "Prepare gravy", "Mix"]
+    "ingredients": [
+      "Eggs",
+      "Tomato gravy"
+    ],
+    "steps": [
+      "Boil eggs",
+      "Prepare gravy",
+      "Mix"
+    ]
   },
-
   {
     "id": "protein-mousse",
     "name": "Chocolate Protein Mousse",
@@ -175,8 +289,15 @@
     "calories": "200",
     "protein": "20g",
     "time": "10 min",
-    "ingredients": ["Greek yogurt", "Protein powder"],
-    "steps": ["Mix", "Chill", "Serve"]
+    "ingredients": [
+      "Greek yogurt",
+      "Protein powder"
+    ],
+    "steps": [
+      "Mix",
+      "Chill",
+      "Serve"
+    ]
   },
   {
     "id": "fruit-yogurt",
@@ -186,8 +307,14 @@
     "calories": "180",
     "protein": "12g",
     "time": "5 min",
-    "ingredients": ["Yogurt", "Fruits"],
-    "steps": ["Mix", "Serve"]
+    "ingredients": [
+      "Yogurt",
+      "Fruits"
+    ],
+    "steps": [
+      "Mix",
+      "Serve"
+    ]
   },
   {
     "id": "chia-pudding",
@@ -197,8 +324,15 @@
     "calories": "220",
     "protein": "10g",
     "time": "10 min",
-    "ingredients": ["Chia seeds", "Milk"],
-    "steps": ["Soak", "Chill", "Serve"]
+    "ingredients": [
+      "Chia seeds",
+      "Milk"
+    ],
+    "steps": [
+      "Soak",
+      "Chill",
+      "Serve"
+    ]
   },
   {
     "id": "peanut-bites",
@@ -208,8 +342,15 @@
     "calories": "210",
     "protein": "8g",
     "time": "10 min",
-    "ingredients": ["Peanut butter", "Oats"],
-    "steps": ["Mix", "Shape", "Serve"]
+    "ingredients": [
+      "Peanut butter",
+      "Oats"
+    ],
+    "steps": [
+      "Mix",
+      "Shape",
+      "Serve"
+    ]
   },
   {
     "id": "dark-choco",
@@ -219,7 +360,25 @@
     "calories": "190",
     "protein": "6g",
     "time": "5 min",
-    "ingredients": ["Dark chocolate", "Almonds"],
-    "steps": ["Melt", "Mix", "Set"]
+    "ingredients": [
+      "Dark chocolate",
+      "Almonds"
+    ],
+    "steps": [
+      "Melt",
+      "Mix",
+      "Set"
+    ]
+  },
+  {
+    "id": "Chicken-korma",
+    "name": "Chicken Korma",
+    "category": "dinner",
+    "image": "https://images.unsplash.com/photo-1547592180-85f173990554",
+    "calories": "300",
+    "protein": "25g",
+    "time": "20 min",
+    "ingredients": ["Chicken breast", "Yogurt", "Spices", "Onion", "Garlic"],
+    "steps": ["add chicken", "prepare gravy", "combine and cook"]
   }
 ]

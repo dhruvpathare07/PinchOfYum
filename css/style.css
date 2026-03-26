@@ -5,37 +5,101 @@ background:#0A0A0A;
 color:white;
 }
 
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 40px;
-background:#000;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: #000;
+}
+/* LOGO COLOR */
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #FF6B00;
 }
 
-nav{
-display:flex;
-align-items:center;
-gap:25px;
-}
-#authArea{
-display:flex;
-align-items:center;
-}
-.logo{
-font-size:24px;
-font-weight:700;
-color:#FF6B00;
+/* NAV LINKS CLEAN */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
-nav a{
-margin-left:20px;
-text-decoration:none;
-color:white;
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.2s;
 }
 
-nav a:hover{
-color:#FF6B00;
+/* ACTIVE PAGE */
+.active-link {
+    color: #FF6B00;
+}
+
+/* HOVER */
+nav a:hover {
+    color: #FF6B00;
+}
+
+
+/* AUTH AREA */
+#authArea {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* USER MENU */
+.user-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* USERNAME */
+.username {
+    color: #FF6B00;
+    font-weight: bold;
+    padding: 6px 10px;
+}
+
+/* DROPDOWN FIX */
+.dropdown {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: #111;
+    border-radius: 8px;
+    padding: 8px;
+    display: none;
+    min-width: 120px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    z-index: 100;
+}
+
+/* SHOW ON HOVER */
+.user-menu:hover .dropdown {
+    display: block;
+}
+
+/* DROPDOWN BUTTON */
+.dropdown button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    padding: 8px 10px;
+    border-radius: 6px;
+        
+}
+
+.dropdown button:hover {
+    background: #222;
 }
 
 .container{
@@ -112,21 +176,7 @@ color:black;
 transform:scale(1.05);
 
 }
-.dropdown{
-position:relative;
-display:inline-block;
-}
 
-.dropdown-content{
-display:none;
-position:absolute;
-background:#111;
-padding:10px;
-}
-
-.dropdown:hover .dropdown-content{
-display:block;
-}
 .user-menu{
 position:relative;
 display:flex;

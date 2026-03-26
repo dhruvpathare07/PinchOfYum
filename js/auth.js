@@ -86,20 +86,10 @@ async function login() {
     if (data.message === "Login successful") {
 
         localStorage.setItem("currentUser", username);
+        localStorage.setItem("role", data.role);
 
-        // ✅ ADMIN CHECK
-        if (username === "admin") {
-            localStorage.setItem("role", "admin");
-
-            // ✅ REDIRECT TO ADMIN PAGE
-            window.location.href = "admin.html";
-
-        } else {
-            localStorage.setItem("role", "user");
-
-            // ✅ NORMAL USER
-            window.location.href = "index.html";
-        }
+        // ✅ ALWAYS GO TO INDEX
+        window.location.href = "index.html";
 
     } else {
         document.getElementById("errorMsg").innerText = data.message;

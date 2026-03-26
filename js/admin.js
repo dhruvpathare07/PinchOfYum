@@ -27,12 +27,20 @@ function addRecipe() {
         },
         body: JSON.stringify(recipe)
     })
-    .then(res => res.json())
-    .then(() => {
-        alert("Recipe added successfully!");
-    })
-    .catch(err => {
-        console.error(err);
-        alert("Error adding recipe");
-    });
+        .then(async res => {
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.message || "Failed");
+            }
+
+            return data;
+        })
+        .then(() => {
+            alert("Recipe added successfully!");
+        })
+        .catch(err => {
+            console.error("ERROR:", err);
+            alert("Error adding recipe: " + err.message);
+        });
 }

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin | Add Recipe</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/addRecipe.css">
+
+</head>
+
+<body>
+<script>
+    const role = localStorage.getItem("role");
+
+    if (!role || role !== "admin") {
+        alert("Access Denied! Admin only.");
+        window.location.href = "index.html";
+    }
+</script>
+
+    <header>
+
+        <div class="logo">Pinch Of Yum</div>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="categories.html">Categories</a>
+    <a href="favorites.html">Favorites</a>
+    <div id="authArea"></div>
+</nav>
+    </header>
+
+<div class="container">
+
+    <div class="form-wrapper">
+
+        <h2>Add New Recipe</h2>
+
+        <!-- BASIC INFO -->
+        <div class="form-section">
+            <h3>Basic Info</h3>
+
+            <input id="id" placeholder="Recipe ID (e.g. paneer-tikka)">
+            <input id="name" placeholder="Recipe Name">
+
+            <!-- ✅ DROPDOWN -->
+            <select id="category">
+                <option value="">Select Category</option>
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="dessert">Dessert</option>
+            </select>
+
+            <input id="image" placeholder="Image URL">
+        </div>
+
+        <!-- NUTRITION -->
+        <div class="form-section">
+            <h3>Nutrition</h3>
+
+            <div class="inline-group">
+                <input id="calories" placeholder="Calories">
+                <input id="protein" placeholder="Protein (e.g. 20g)">
+                <input id="time" placeholder="Time (e.g. 20 min)">
+            </div>
+        </div>
+
+        <!-- INGREDIENTS -->
+        <div class="form-section">
+            <h3>Ingredients</h3>
+            <p class="note">Separate using comma</p>
+            <textarea id="ingredients"></textarea>
+        </div>
+
+        <!-- STEPS -->
+        <div class="form-section">
+            <h3>Steps</h3>
+            <p class="note">Separate using comma</p>
+            <textarea id="steps"></textarea>
+        </div>
+
+        <!-- BUTTON -->
+        <button class="submit-btn" onclick="addRecipe()">
+            Add Recipe
+        </button>
+
+    </div>
+
+</div>
+
+<script src="../js/admin.js"></script>
+<script src="../js/navbar.js"></script>
+<script src="../js/adminDashboard.js"></script>
+
+
+</body>
+</html>

@@ -1,39 +1,43 @@
-const authArea = document.getElementById("authArea");
+document.addEventListener("DOMContentLoaded", () => {
 
-const user = localStorage.getItem("currentUser");
+    const authArea = document.getElementById("authArea");
 
-if(user){
+    if (!authArea) return; // safety
 
-authArea.innerHTML = `
+    const username = localStorage.getItem("currentUser");
+    const role = localStorage.getItem("role");
 
-<div class="user-menu">
+    // ✅ ACTIVE LINK
+    const currentPage = window.location.pathname.split("/").pop();
 
-<span class="username">👤 ${user} ▼</span>
+    document.querySelectorAll("nav a").forEach(link => {
+        if (link.getAttribute("href") === currentPage) {
+            link.classList.add("active-link");
+        }
+    });
 
-<div class="dropdown">
+    // ✅ AUTH UI
+    if (username) {
 
-<button onclick="logout()">Logout</button>
+        authArea.innerHTML = `
+            ${role === "admin" ? `<a href="adminDashboard.html">Dashboard</a>` : ""}
 
-</div>
+            <div class="user-menu">
+                <span class="username">${username}</span>
+                <div class="dropdown">
+                    <button onclick="logout()">Logout</button>
+                </div>
+            </div>
+        `;
 
-</div>
+    } else {
+        authArea.innerHTML = `<a href="login.html">Login</a>`;
+    }
 
-`;
+});
 
-}else{
-
-authArea.innerHTML = `
-
-<a href="login.html" class="login-btn">Login</a>
-
-`;
-
-}
-
-function logout(){
-
-localStorage.removeItem("currentUser");
-
-window.location.href="login.html";
-
+// LOGOUT (global)
+function logout() {
+    localStorage.clear();
+    window.location.href = "login.html";
 }

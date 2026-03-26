@@ -1,0 +1,58 @@
+/* MAIN CONTAINER */
+.dashboard-container {
+    margin-top: 30px;
+}
+
+/* ROW 1: OVERVIEW */
+.overview-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* ROW 2: ADD RECIPE */
+.add-row {
+    margin-top: 25px;
+}
+
+/* CARDS */
+.dash-card {
+    background: #111;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.dash-card h3 {
+    font-size: 28px;
+    color: #FF6B00;
+    margin-bottom: 10px;
+}
+
+.dash-card p {
+    color: #aaa;
+}
+
+/* HOVER EFFECT */
+.dash-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255,107,0,0.2);
+}
+
+/* ADD RECIPE CARD */
+.highlight {
+    border: 1px dashed #FF6B00;
+    cursor: pointer;
+    width: 100%;
+}
+
+.highlight:hover {
+    background: #FF6B00;
+    color: black;
+}
+@media(max-width: 768px) {
+    .overview-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

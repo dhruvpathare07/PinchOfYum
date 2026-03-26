@@ -5,6 +5,7 @@ function initReviews() {
     loadReviews();
 }
 
+// ⭐ CREATE STAR INPUT
 function createStars() {
     const starContainer = document.getElementById("starInput");
     if (!starContainer) return;
@@ -24,6 +25,7 @@ function createStars() {
     }
 }
 
+// ⭐ UPDATE STAR UI
 function updateStars() {
     const stars = document.querySelectorAll("#starInput span");
     stars.forEach((s, index) => {
@@ -31,6 +33,7 @@ function updateStars() {
     });
 }
 
+// ⭐ SUBMIT REVIEW
 async function submitReview() {
 
     const username = localStorage.getItem("currentUser");
@@ -71,6 +74,7 @@ async function submitReview() {
     }
 }
 
+// ⭐ LOAD REVIEWS
 async function loadReviews() {
 
     const recipeId = new URLSearchParams(window.location.search).get("id");
@@ -123,14 +127,69 @@ async function loadReviews() {
         `).join("")}
     `;
 
-    // 📝 REVIEWS
+    const role = localStorage.getItem("role");
+
+    // 📝 REVIEWS LIST
     data.reverse().forEach(r => {
+
         container.innerHTML += `
             <div class="review-item">
+
                 <strong>${r.username}</strong> • ${getStarHTML(r.rating)}
-                <p>${r.comment}</p>
+
+                <p>${r.comment || ""}</p>
+
                 <small>${r.date}</small>
+
+                ${role === "admin" ? `
+                    <div style="margin-top:8px;">
+                        <button onclick="deleteReview('${r.recipe_id}','${r.username}')">Delete</button>
+                        <button onclick="blockUser('${r.username}')">Block</button>
+                    </div>
+                ` : ""}
+
             </div>
         `;
+    });
+}
+
+// ⭐ DELETE REVIEW (ADMIN)
+function deleteReview(recipeId, username) {
+
+    if (!confirm("Delete this review?")) return;
+
+    fetch("http://127.0.0.1:5000/delete-review", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ recipe_id: recipeId, username })
+    })
+    .then(res => res.json())
+    .then(() => {
+        alert("Review deleted");
+        loadReviews();
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Error deleting review");
+    });
+}
+
+// 🚫 BLOCK USER (ADMIN)
+function blockUser(username) {
+
+    if (!confirm("Block this user?")) return;
+
+    fetch("http://127.0.0.1:5000/block-user", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ username })
+    })
+    .then(res => res.json())
+    .then(() => {
+        alert("User blocked");
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Error blocking user");
     });
 }

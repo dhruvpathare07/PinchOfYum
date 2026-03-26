@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+
+<script>
+    const role = localStorage.getItem("role");
+
+    if (!role || role !== "admin") {
+        alert("Access Denied! Admin only.");
+        window.location.href = "index.html";
+    }
+</script>
+
+<header>
+    <div class="logo">Pinch Of Yum</div>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="categories.html">Categories</a>
+    <a href="favorites.html">Favorites</a>
+    <div id="authArea"></div>
+</nav>
+</header>
+
+<div class="container">
+
+    <h2>Admin Dashboard</h2>
+
+    <!-- OVERVIEW -->
+<div class="dashboard-container">
+
+    <!-- ROW 1: OVERVIEW -->
+    <div class="overview-row">
+
+        <div class="dash-card">
+            <h3 id="totalRecipes">0</h3>
+            <p>Recipes</p>
+        </div>
+
+        <div class="dash-card">
+            <h3 id="totalUsers">0</h3>
+            <p>Users</p>
+        </div>
+
+        <div class="dash-card">
+            <h3 id="totalReviews">0</h3>
+            <p>Reviews</p>
+        </div>
+
+        <div class="dash-card">
+            <h3 id="blockedUsers">0</h3>
+            <p>Blocked</p>
+        </div>
+
+    </div>
+
+    <!-- ROW 2: ADD RECIPE -->
+    <div class="add-row">
+        <div class="dash-card highlight" onclick="goToAddRecipe()">
+            <h3>➕</h3>
+            <p>Add Recipe</p>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<script src="../js/navbar.js"></script>
+<script src="../js/adminDashboard.js"></script>
+
+</body>
+</html>

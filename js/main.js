@@ -1,14 +1,16 @@
 let allRecipes = [];
 let ratingsMap = {};
 
-// ⭐ STAR HTML (GLOBAL)
+// ⭐ STAR HTML
 function getStarHTML(rating) {
     let html = "";
 
+    const rounded = Math.round(rating * 2) / 2; // ✅ FIX: proper half stars
+
     for (let i = 1; i <= 5; i++) {
-        if (rating >= i) {
+        if (rounded >= i) {
             html += `<span class="star filled">★</span>`;
-        } else if (rating >= i - 0.5) {
+        } else if (rounded >= i - 0.5) {
             html += `<span class="star half">★</span>`;
         } else {
             html += `<span class="star">★</span>`;
@@ -18,16 +20,21 @@ function getStarHTML(rating) {
     return html;
 }
 
-// LOAD EVERYTHING
+// 🚀 LOAD ALL DATA
 async function loadData() {
-    const res = await fetch("../data/recipes.json");
-    allRecipes = await res.json();
+    try {
+        const res = await fetch("../data/recipes.json");
+        allRecipes = await res.json();
 
-    await loadRatings();
-    applyFilters();
+        await loadRatings();
+        applyFilters();
+
+    } catch (err) {
+        console.error("Error loading recipes:", err);
+    }
 }
 
-// LOAD RATINGS
+// ⭐ LOAD RATINGS
 async function loadRatings() {
     try {
         const res = await fetch("http://127.0.0.1:5000/reviews/all");
@@ -35,6 +42,7 @@ async function loadRatings() {
 
         ratingsMap = {};
 
+        // GROUP RATINGS
         reviews.forEach(r => {
             if (!ratingsMap[r.recipe_id]) {
                 ratingsMap[r.recipe_id] = [];
@@ -42,6 +50,7 @@ async function loadRatings() {
             ratingsMap[r.recipe_id].push(r.rating);
         });
 
+        // CALCULATE AVERAGE
         for (let id in ratingsMap) {
             const arr = ratingsMap[id];
             const avg = arr.reduce((a, b) => a + b, 0) / arr.length;
@@ -49,11 +58,12 @@ async function loadRatings() {
         }
 
     } catch (err) {
-        console.log("Ratings API not working");
+        console.warn("⚠ Ratings API not working, fallback to no ratings");
+        ratingsMap = {}; // ✅ fallback
     }
 }
 
-// DISPLAY
+// 🎨 DISPLAY RECIPES
 function displayRecipes(recipes) {
     const grid = document.getElementById("recipeGrid");
     grid.innerHTML = "";
@@ -71,11 +81,14 @@ function displayRecipes(recipes) {
             <img src="${recipe.image}">
             <div class="card-body">
                 <h3>${recipe.name}</h3>
+
                 <p>${recipe.calories} cal • ${recipe.protein}</p>
 
                 <div class="rating-box">
-                    ${getStarHTML(rating)}
-                    <span>${rating ? rating.toFixed(1) : "N/A"}</span>
+                    ${rating > 0 
+                        ? `${getStarHTML(rating)} <span>${rating.toFixed(1)}</span>`
+                        : `<span style="color:#777;">No ratings</span>`
+                    }
                 </div>
 
                 <button onclick="event.stopPropagation(); openRecipe('${recipe.id}')">
@@ -88,7 +101,7 @@ function displayRecipes(recipes) {
     });
 }
 
-// FILTERS
+// 🔍 FILTERS
 function applyFilters() {
 
     const search = document.getElementById("searchInput")?.value.toLowerCase() || "";
@@ -98,8 +111,8 @@ function applyFilters() {
 
     const filtered = allRecipes.filter(r => {
 
-        const cal = parseInt(r.calories);
-        const prot = parseInt(r.protein);
+        const cal = parseInt(r.calories) || 0;
+        const prot = parseInt(r.protein) || 0;
         const rating = ratingsMap[r.id] || 0;
 
         const matchSearch =
@@ -108,12 +121,12 @@ function applyFilters() {
 
         let matchCalories = true;
         if (calorie === "low") matchCalories = cal < 200;
-        else if (calorie === "medium") matchCalories = cal <= 350;
+        else if (calorie === "medium") matchCalories = cal >= 200 && cal <= 350;
         else if (calorie === "high") matchCalories = cal > 350;
 
         let matchProtein = true;
         if (protein === "low") matchProtein = prot < 10;
-        else if (protein === "medium") matchProtein = prot <= 25;
+        else if (protein === "medium") matchProtein = prot >= 10 && prot <= 25;
         else if (protein === "high") matchProtein = prot > 25;
 
         let matchRating = true;
@@ -127,14 +140,16 @@ function applyFilters() {
     displayRecipes(filtered);
 }
 
-// EVENTS
+// 🎯 EVENTS
 document.getElementById("searchInput")?.addEventListener("input", applyFilters);
 document.getElementById("calorieFilter")?.addEventListener("change", applyFilters);
 document.getElementById("proteinFilter")?.addEventListener("change", applyFilters);
 document.getElementById("ratingFilter")?.addEventListener("change", applyFilters);
 
+// 🔗 NAVIGATION
 function openRecipe(id) {
     window.location.href = "recipe.html?id=" + id;
 }
 
+// 🚀 INIT
 loadData();
