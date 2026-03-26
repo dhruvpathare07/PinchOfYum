@@ -1,108 +1,107 @@
 let isLogin = true
 
-function toggleForm(){
+function toggleForm() {
 
-const title=document.getElementById("formTitle")
-const btn=document.querySelector("button")
-const switchText=document.querySelector(".switch")
+    const title = document.getElementById("formTitle")
+    const btn = document.querySelector("button")
+    const switchText = document.querySelector(".switch")
 
-const error=document.getElementById("errorMsg")
+    const error = document.getElementById("errorMsg")
 
-error.innerText=""
+    error.innerText = ""
 
-if(isLogin){
+    if (isLogin) {
 
-title.innerText="Register"
-btn.innerText="Register"
-switchText.innerText="Already have an account? Login"
+        title.innerText = "Register"
+        btn.innerText = "Register"
+        switchText.innerText = "Already have an account? Login"
 
-btn.setAttribute("onclick","register()")
+        btn.setAttribute("onclick", "register()")
 
-}else{
+    } else {
 
-title.innerText="Login"
-btn.innerText="Login"
-switchText.innerText="Don't have an account? Register"
+        title.innerText = "Login"
+        btn.innerText = "Login"
+        switchText.innerText = "Don't have an account? Register"
 
-btn.setAttribute("onclick","login()")
+        btn.setAttribute("onclick", "login()")
 
-}
+    }
 
-isLogin=!isLogin
-
-}
-
-
-async function register(){
-
-const username=document.getElementById("username").value
-const password=document.getElementById("password").value
-
-const res=await fetch("http://127.0.0.1:5000/register",{
-
-method:"POST",
-
-headers:{
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify({
-username,
-password
-})
-
-})
-
-const data=await res.json()
-
-if(data.message==="User registered successfully"){
-
-alert("Registration successful")
-
-toggleForm()
-
-}else{
-
-document.getElementById("errorMsg").innerText=data.message
-
-}
+    isLogin = !isLogin
 
 }
 
 
+async function register() {
 
-async function login(){
+    const username = document.getElementById("username").value
+    const password = document.getElementById("password").value
 
-const username=document.getElementById("username").value
-const password=document.getElementById("password").value
+    const res = await fetch("http://127.0.0.1:5000/register", {
 
-const res=await fetch("http://127.0.0.1:5000/login",{
+        method: "POST",
 
-method:"POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
 
-headers:{
-"Content-Type":"application/json"
-},
+        body: JSON.stringify({
+            username,
+            password
+        })
 
-body:JSON.stringify({
-username,
-password
-})
+    })
 
-})
+    const data = await res.json()
 
-const data=await res.json()
+    if (data.message === "User registered successfully") {
 
-if(data.message==="Login successful"){
+        alert("Registration successful")
 
-localStorage.setItem("currentUser",username)
+        toggleForm()
 
-window.location.href="index.html"
+    } else {
 
-}else{
+        document.getElementById("errorMsg").innerText = data.message
 
-document.getElementById("errorMsg").innerText=data.message
+    }
 
 }
+async function login() {
 
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    const res = await fetch("http://127.0.0.1:5000/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ username, password })
+    });
+
+    const data = await res.json();
+
+    if (data.message === "Login successful") {
+
+        localStorage.setItem("currentUser", username);
+
+        // ✅ ADMIN CHECK
+        if (username === "admin") {
+            localStorage.setItem("role", "admin");
+
+            // ✅ REDIRECT TO ADMIN PAGE
+            window.location.href = "admin.html";
+
+        } else {
+            localStorage.setItem("role", "user");
+
+            // ✅ NORMAL USER
+            window.location.href = "index.html";
+        }
+
+    } else {
+        document.getElementById("errorMsg").innerText = data.message;
+    }
 }

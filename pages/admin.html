@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin | Add Recipe</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .admin-container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: #111;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .admin-container h2 {
+            color: #FF6B00;
+            margin-bottom: 20px;
+        }
+
+        .admin-container input,
+        .admin-container textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: none;
+            background: #1c1c1c;
+            color: white;
+        }
+
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<script>
+    const role = localStorage.getItem("role");
+
+    if (!role || role !== "admin") {
+        alert("Access Denied! Admin only.");
+        window.location.href = "index.html";
+    }
+</script>
+
+<div class="container">
+    <div class="admin-container">
+
+        <h2>Add New Recipe</h2>
+
+        <input id="id" placeholder="Recipe ID (unique, e.g. paneer-tikka)">
+        <input id="name" placeholder="Recipe Name">
+        <input id="category" placeholder="Category (breakfast/lunch/dinner)">
+        <input id="image" placeholder="Image URL">
+        <input id="calories" placeholder="Calories">
+        <input id="protein" placeholder="Protein (e.g. 20g)">
+        <input id="time" placeholder="Time (e.g. 20 min)">
+
+        <p class="note">Ingredients (comma separated)</p>
+        <textarea id="ingredients"></textarea>
+
+        <p class="note">Steps (comma separated)</p>
+        <textarea id="steps"></textarea>
+
+        <button onclick="addRecipe()">Add Recipe</button>
+
+    </div>
+</div>
+
+<script src="../js/admin.js"></script>
+
+</body>
+</html>

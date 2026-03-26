@@ -28,6 +28,11 @@ def init_db():
         recipe_id TEXT
     )
     """)
+    cursor.execute(
+    "INSERT OR IGNORE INTO users (username, password) VALUES (?, ?)",
+    ("admin", "admin123")
+)
+
 
     conn.commit()
     conn.close()
@@ -35,13 +40,16 @@ def init_db():
 init_db()
 
 # ---------- REGISTER API ----------
-
 @app.route("/register", methods=["POST"])
 def register():
 
     data = request.json
     username = data["username"]
     password = data["password"]
+
+    # ❌ BLOCK ADMIN REGISTRATION
+    if username.lower() == "admin":
+        return jsonify({"message": "Admin username is reserved"}), 400
 
     conn = sqlite3.connect("users.db")
     cursor = conn.cursor()
@@ -58,9 +66,7 @@ def register():
         return jsonify({"message":"User registered successfully"})
 
     except:
-
         return jsonify({"message":"Username already exists"})
-
 
 # ---------- LOGIN API ----------
 
@@ -171,6 +177,24 @@ def get_reviews(recipe_id):
 def all_reviews():
     reviews = load_reviews()
     return jsonify(reviews)
+
+@app.route("/add-recipe", methods=["POST"])
+def add_recipe():
+    new_recipe = request.json
+
+    try:
+        with open("data/recipes.json", "r") as f:
+            recipes = json.load(f)
+
+        recipes.append(new_recipe)
+
+        with open("data/recipes.json", "w") as f:
+            json.dump(recipes, f, indent=2)
+
+        return jsonify({"message": "Recipe added successfully"})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 # ---------- RUN SERVER ----------
 
 if __name__ == "__main__":

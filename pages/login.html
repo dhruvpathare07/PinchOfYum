@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="../css/style.css">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lobster&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-
         body {
             margin: 0;
             height: 100vh;
@@ -56,7 +57,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .auth-right {
@@ -91,18 +92,21 @@
         }
 
         .toggle-password {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: #aaa;
-            font-size: 14px;
-        }
+    position: absolute;
+    right: 1px;
+    top: 35%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #aaa;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .toggle-password:hover {
-            color: #FF6B00;
-        }
+.toggle-password:hover {
+    color: #FF6B00;
+}
 
         button {
             width: 100%;
@@ -110,14 +114,14 @@
             background: linear-gradient(135deg, #FF6B00, #ff8c42);
             border: none;
             border-radius: 8px;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.25s ease;
         }
 
         button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(255, 107, 0, 0.5);
+            transform: none;
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.25);
         }
 
         .switch {
@@ -134,8 +138,15 @@
             color: #ff4d4d;
             margin-bottom: 10px;
         }
+        input {
+    border: 1px solid transparent;
+}
 
-        @media(max-width:768px){
+input:focus {
+    border: 1px solid #FF6B00;
+}
+
+        @media(max-width:768px) {
             .auth-container {
                 flex-direction: column;
                 width: 90%;
@@ -149,7 +160,6 @@
                 font-size: 36px;
             }
         }
-
     </style>
 
 </head>
@@ -174,7 +184,9 @@
             <!-- 👁 PASSWORD FIELD -->
             <div class="password-wrapper">
                 <input type="password" id="password" placeholder="Enter Password">
-                <span class="toggle-password" onclick="togglePassword()">Show</span>
+                <span class="toggle-password" onclick="togglePassword()">
+    <i class="fa-solid fa-eye"></i>
+</span>
             </div>
 
             <button onclick="login()">Login</button>
@@ -188,21 +200,24 @@
     </div>
 
     <script>
-        function togglePassword() {
-            const pass = document.getElementById("password");
-            const toggle = document.querySelector(".toggle-password");
+       function togglePassword() {
+    const pass = document.getElementById("password");
+    const icon = document.querySelector(".toggle-password i");
 
-            if (pass.type === "password") {
-                pass.type = "text";
-                toggle.innerText = "Hide";
-            } else {
-                pass.type = "password";
-                toggle.innerText = "Show";
-            }
-        }
+    if (pass.type === "password") {
+        pass.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    } else {
+        pass.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    }
+}
     </script>
 
     <script src="../js/auth.js"></script>
 
 </body>
+
 </html>
